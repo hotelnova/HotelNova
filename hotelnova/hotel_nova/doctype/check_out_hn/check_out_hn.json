@@ -1,0 +1,407 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2022-10-15 09:48:26.427623",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_1",
+  "column_break_2",
+  "title",
+  "naming_series",
+  "room",
+  "posting_date",
+  "customer",
+  "column_break_3",
+  "check_in_id",
+  "column_break_4",
+  "company",
+  "section_break_5",
+  "check_in",
+  "guest_name",
+  "column_break_5",
+  "guest_id",
+  "cnic",
+  "section_break_6",
+  "items",
+  "total_amount",
+  "stay_summary_selection",
+  "stay_charges",
+  "column_break_6",
+  "food_link",
+  "food_order",
+  "food",
+  "mini_bar",
+  "column_break_7",
+  "laundry",
+  "laundry_item",
+  "laundry_order",
+  "total_bill",
+  "section_break_7",
+  "taxes_and_charges",
+  "tax_payments",
+  "total_taxes_and_charges",
+  "net_total_amount",
+  "column_break_8",
+  "is_tax_invoice",
+  "section_break_8",
+  "payments",
+  "total_payments",
+  "total_pos_charges",
+  "amount_paid",
+  "net_balance_amount",
+  "refund",
+  "section_break_9",
+  "status",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Title",
+   "no_copy": 1,
+   "print_hide": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Series",
+   "options": "CHK-OUT-.YYYY.-\nINV-CHK-OUT-.YYYY.-",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "room",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Room",
+   "options": "Rooms HN",
+   "reqd": 1
+  },
+  {
+   "default": "now",
+   "fieldname": "posting_date",
+   "fieldtype": "Datetime",
+   "label": "Posting Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "check_in_id",
+   "fieldtype": "Link",
+   "label": "Check In ID",
+   "options": "Check In HN",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "section_break_5",
+   "fieldtype": "Section Break",
+   "label": "Stay Details"
+  },
+  {
+   "fetch_from": "check_in_id.check_in_time",
+   "fieldname": "check_in",
+   "fieldtype": "Datetime",
+   "label": "Check In",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "check_in_id.guest_name",
+   "fieldname": "guest_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Guest Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "check_in_id.guest_id",
+   "fieldname": "guest_id",
+   "fieldtype": "Link",
+   "label": "Guest ID",
+   "options": "Reservation HN",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "check_in_id.cnic",
+   "fieldname": "cnic",
+   "fieldtype": "Data",
+   "label": "CNIC"
+  },
+  {
+   "fieldname": "section_break_6",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fetch_from": "food_order.table",
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Check Out Item HN"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount"
+  },
+  {
+   "fieldname": "stay_summary_selection",
+   "fieldtype": "Section Break",
+   "label": "Stay Summary"
+  },
+  {
+   "fetch_from": "room.room_price",
+   "fieldname": "stay_charges",
+   "fieldtype": "Currency",
+   "label": "Stay Charges",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "food_link",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Food",
+   "options": "Food Order Item HN"
+  },
+  {
+   "fieldname": "food_order",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Food",
+   "options": "Food Order HN"
+  },
+  {
+   "fetch_from": "food_order.total_amount",
+   "fieldname": "food",
+   "fieldtype": "Currency",
+   "label": "Food",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "mini_bar",
+   "fieldtype": "Currency",
+   "label": "Mini Bar",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "laundry_order.total_amount",
+   "fieldname": "laundry",
+   "fieldtype": "Currency",
+   "label": "Laundry",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "laundry_item",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Laundry",
+   "options": "Laundry Order Item HN"
+  },
+  {
+   "fieldname": "laundry_order",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Laundry",
+   "options": "Laundry Order HN"
+  },
+  {
+   "fieldname": "total_bill",
+   "fieldtype": "Currency",
+   "label": "Total Bill",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "section_break_7",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "taxes_and_charges",
+   "fieldtype": "Table",
+   "label": "Taxes and Charges",
+   "options": "Check Out Taxes and Charges HN"
+  },
+  {
+   "fieldname": "tax_payments",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Tax Payments",
+   "options": "Check Out Taxes and Charges HN"
+  },
+  {
+   "fieldname": "total_taxes_and_charges",
+   "fieldtype": "Currency",
+   "hidden": 1,
+   "label": "Total Taxes and Charges",
+   "options": "Currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "net_total_amount",
+   "fieldtype": "Currency",
+   "hidden": 1,
+   "label": "Net Total Amount",
+   "options": "Currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_tax_invoice",
+   "fieldtype": "Check",
+   "label": "Is Tax Invoice"
+  },
+  {
+   "fieldname": "section_break_8",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "payments",
+   "fieldtype": "Table",
+   "label": "Payments",
+   "options": "Check Out Payments HN"
+  },
+  {
+   "fieldname": "total_payments",
+   "fieldtype": "Currency",
+   "label": "Total Payments",
+   "options": "Currency"
+  },
+  {
+   "depends_on": "eval: doc.total_pos_charges > 0;",
+   "fieldname": "total_pos_charges",
+   "fieldtype": "Currency",
+   "label": "Total POS Charges",
+   "options": "Currency"
+  },
+  {
+   "depends_on": "eval: doc.customer == 'Hotel Walk In Customer' || doc.total_pos_charges>0;",
+   "fieldname": "amount_paid",
+   "fieldtype": "Currency",
+   "label": "Amount Paid",
+   "options": "Currency"
+  },
+  {
+   "depends_on": "eval: doc.total_pos_charges == 0 && doc.customer;",
+   "fieldname": "net_balance_amount",
+   "fieldtype": "Currency",
+   "label": "Net Balance Amount",
+   "options": "Currency"
+  },
+  {
+   "depends_on": "eval: doc.refund != 0 && doc.customer;",
+   "fieldname": "refund",
+   "fieldtype": "Currency",
+   "label": "Refund",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "section_break_9",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "\nDraft\nOn Hold\nTo Bill\nCompleted\nCancelled",
+   "print_hide": 1,
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Check Out HN",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Check Out HN",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2022-10-15 16:09:34.541146",
+ "modified_by": "Administrator",
+ "module": "Hotel Nova",
+ "name": "Check Out HN",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
